@@ -5,4 +5,7 @@ class World {
     constructor() {
         this.character= new Character();
     }
+
+    draw(ctx) {
+    }
 }

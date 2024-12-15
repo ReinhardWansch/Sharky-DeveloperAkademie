@@ -11,5 +11,8 @@ function init() {
 /*###########*/
 
 function tuEsScript() {
-    world.enemies.push(new Enemy());
+    let img= new Image();
+    img.src= './img/1.Sharkie/1.IDLE/1.png';
+    img.decode()
+        .then(()=> ctx.drawImage(img,0,0,203,250));
 }
