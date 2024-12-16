@@ -1,9 +1,10 @@
+const ENEMY_SPAWN_XPOS= 550;
+const ENEMY_SPAWN_YPOS= 350;
 let canvas1= document.getElementById('canvas1');
-let ctx= canvas1.getContext('2d');
-let world= new World();
+let world= new World(canvas1);
 
 function init() {
-    console.log(world); ///DEBUG
+    world.draw();
 }
 
 /*###########*/
@@ -11,8 +12,8 @@ function init() {
 /*###########*/
 
 function tuEsScript() {
-    let img= new Image();
-    img.src= './img/1.Sharkie/1.IDLE/1.png';
-    img.decode()
-        .then(()=> ctx.drawImage(img,0,0,203,250));
+    world.addEnemy(ENEMY_SPAWN_XPOS, ENEMY_SPAWN_YPOS);
+    world.addEnemy(ENEMY_SPAWN_XPOS, ENEMY_SPAWN_YPOS-50);
+    world.addEnemy(ENEMY_SPAWN_XPOS, ENEMY_SPAWN_YPOS-100);
+    world.drawEnemies();
 }

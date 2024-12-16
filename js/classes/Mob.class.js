@@ -2,10 +2,14 @@ class Mob {
     img;
     xPos;
     yPos;
+    xWidth;
+    yWidth
 
-    constructor (xPos=0, yPos=0) {
+    constructor (xWidth, yWidth, xPos=0, yPos=0) {
         this.xPos= xPos;
         this.yPos= yPos;
+        this.xWidth= xWidth;
+        this.yWidth= yWidth;
     }
 
     loadImage(imgPath) {
@@ -13,8 +17,24 @@ class Mob {
         this.img.src= imgPath;
     }
 
+    async draw(ctx) {
+        await this.img.decode();
+        ctx.drawImage(
+            this.img, 
+            this.xPos, 
+            this.yPos, 
+            this.xWidth,
+            this.yWidth
+        )
+    }
+
     moveR() {
         console.log('Mob moving right'); ///DEBUG
+    }
+
+    setPos(x,y) {
+        this.xPos= x;
+        this.yPos= y;
     }
 
 }
