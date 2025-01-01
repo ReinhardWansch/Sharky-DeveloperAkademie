@@ -1,9 +1,9 @@
 class Mob {
-    img;
     xPos;
     yPos;
     xWidth;
-    yWidth
+    yWidth;
+    img;
 
     constructor (xWidth, yWidth, xPos=0, yPos=0) {
         this.xPos= xPos;
