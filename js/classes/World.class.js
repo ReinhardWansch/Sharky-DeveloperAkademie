@@ -1,34 +1,19 @@
 class World {
     ctx;
     character= new Character();
-    enemies= [];
+    enemies= [
+        new Enemy(),
+        new Enemy(),
+        new Enemy()
+    ];
 
     constructor(canvas) {
         this.ctx= canvas.getContext('2d');
+        this.draw();
     }
 
     draw() {
-        this.character.draw(this.ctx);
-        this.drawEnemies();
+        this.ctx.drawImage(this.character.img, this.character.xPos, this.character.yPos, this.character.width, this.character.height);
     }
 
-    drawEnemies() {
-        for (let enemyI of this.enemies) {
-            enemyI.draw(this.ctx);
-        }
-    }
-
-    addEnemy(xPos, yPos) {
-        let newEnemy= new Enemy();
-        newEnemy.xPos= xPos;
-        newEnemy.yPos= yPos;
-        this.enemies.push(newEnemy);
-    }
-
-    spawnEnemy() {
-        let newEnemy= new Enemy();
-        this.enemies.push(new Enemy());
-        newEnemy.img.decode()
-            .then(()=>newEnemy.draw(this.ctx));
-    }
 }
