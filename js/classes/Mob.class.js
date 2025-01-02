@@ -1,8 +1,8 @@
 class Mob {
     xPos= 0;
-    yPos= 150;
-    width= 203;
-    height= 250;
+    yPos= 0;
+    width= 100;
+    height= 100;
     img;
 
     constructor () {
