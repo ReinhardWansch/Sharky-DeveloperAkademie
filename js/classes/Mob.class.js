@@ -1,5 +1,5 @@
 class Mob {
-    xPos= 120;
+    xPos= 0;
     yPos= 150;
     width= 203;
     height= 250;

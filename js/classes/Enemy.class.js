@@ -4,5 +4,9 @@ class Enemy extends Mob {
     constructor() {
         super();
         this.loadImage(Enemy.IMG_PATH);
+        this.width= 60;
+        this.height= 49;
+        this.xPos= 250 + Math.random() * 450;
+        this.yPos= 280;
     }
 }
