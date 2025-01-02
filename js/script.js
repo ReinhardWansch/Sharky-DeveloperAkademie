@@ -1,4 +1,4 @@
-let canvas= document.getElementById('canvas1');
+let canvas= document.getElementById('canvas');
 let world= new World(canvas);
 
 function init() {
