@@ -1,12 +1,15 @@
 class World {
     ctx;
+    bgObjects= [
+        new BgObject('./img/3. Background/Layers/2. Floor/D.png')
+    ]
+    barriers= [new Barrier()];
     character= new Character();
     enemies= [
         new Enemy(),
         new Enemy(),
         new Enemy()
     ];
-    barriers= [new Barrier()];
 
     constructor(canvas) {
         this.ctx= canvas.getContext('2d');
@@ -14,20 +17,21 @@ class World {
     }
 
     draw() {
-        console.log('World: draw()'); ///DEBUG
+        // console.log('World: draw()'); ///DEBUG
         this.ctx.clearRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height);
-        //draw barriers
-        this.barriers.forEach(barrier=> {
-            this.ctx.drawImage(barrier.img, barrier.xPos, barrier.yPos, barrier.width, barrier.height);
-        });
-        //draw character
-        this.ctx.drawImage(this.character.img, this.character.xPos, this.character.yPos, this.character.width, this.character.height);
-        //draw enemies
-        this.enemies.forEach(enemy=> {
-            this.ctx.drawImage(enemy.img, enemy.xPos, enemy.yPos, enemy.width, enemy.height);
-        });
-
+        this.drawMobAll(this.barriers);
+        this.drawMobAll(this.bgObjects);
+        this.drawMob(this.character);
+        this.drawMobAll(this.enemies);
         requestAnimationFrame(()=>this.draw());
+    }
+
+    drawMob(mob) {
+        this.ctx.drawImage(mob.img, mob.xPos, mob.yPos, mob.width, mob.height);
+    }
+
+    drawMobAll(mobs) {
+        mobs.forEach( mobI => this.drawMob(mobI) );
     }
 
 }

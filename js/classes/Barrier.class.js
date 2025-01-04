@@ -4,7 +4,7 @@ class Barrier extends Mob {
     width= 353;
     height= 162;
     xPos= Math.random() * 650;
-    yPos= 150;
+    yPos= 300;
 
     constructor() {
         super();
