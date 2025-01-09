@@ -3,7 +3,6 @@ class World {
     bgObjects= [
         new BgObject('./img/3. Background/Layers/2. Floor/D.png')
     ]
-    barriers= [new Barrier()];
     character= new Character();
     enemies= [
         new Enemy(),
@@ -19,7 +18,6 @@ class World {
     draw() {
         // console.log('World: draw()'); ///DEBUG
         this.ctx.clearRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height);
-        this.drawMobAll(this.barriers);
         this.drawMobAll(this.bgObjects);
         this.drawMob(this.character);
         this.drawMobAll(this.enemies);
