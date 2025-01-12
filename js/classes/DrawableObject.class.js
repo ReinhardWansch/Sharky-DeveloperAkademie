@@ -1,6 +1,7 @@
 class DrawableObject {
     img;
-    scale;
+    scaleX;
+    scaleY;
     xPos;
     yPos;
 
@@ -8,7 +9,13 @@ class DrawableObject {
         this.loadImage(imgPath);
         this.xPos = x;
         this.yPos = y;
-        this.scale = scale;
+        this.scaleX = scale;
+        this.scaleY = scale;
+    }
+
+    set scale(scale) {
+        this.scaleX = scale;
+        this.scaleY = scale;
     }
 
     loadImage(imgPath) {
@@ -21,7 +28,7 @@ class DrawableObject {
             this.img,
             this.xPos,
             this.yPos,
-            this.img.width * this.scale,
-            this.img.height * this.scale);
+            this.img.width * this.scaleX,
+            this.img.height * this.scaleY);
     }
 }
