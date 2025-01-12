@@ -36,8 +36,8 @@ class DrawableObject {
             this.img,
             this.xPos,
             this.yPos,
-            this.img.width * this.scaleX,
-            this.img.height * this.scaleY);
+            this.width,
+            this.height);
     }
 
     scaleToWidth(width) {
