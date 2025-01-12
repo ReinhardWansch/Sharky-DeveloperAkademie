@@ -11,7 +11,7 @@ class World {
         new Enemy()
     ];
     */
-    debugObject= new DrawableObject('./img/6.Botones/Start/1.png', 0.5, 10, 10);
+    debugObject= new DrawableObject('./img/6.Botones/Start/1.png');
 
     constructor(canvas) {
         this.ctx = canvas.getContext('2d');
