@@ -18,18 +18,18 @@ class World {
     draw() {
         // console.log('World: draw()'); ///DEBUG
         this.ctx.clearRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height);
-        this.drawMobAll(this.bgObjects);
-        this.drawMob(this.character);
-        this.drawMobAll(this.enemies);
+        this.drawMoBAll(this.bgObjects);
+        this.drawMoB(this.character);
+        this.drawMoBAll(this.enemies);
         requestAnimationFrame(()=>this.draw());
     }
 
-    drawMob(mob) {
+    drawMoB(mob) {
         this.ctx.drawImage(mob.img, mob.xPos, mob.yPos, mob.width, mob.height);
     }
 
-    drawMobAll(mobs) {
-        mobs.forEach( mobI => this.drawMob(mobI) );
+    drawMoBAll(mobs) {
+        mobs.forEach( mobI => this.drawMoB(mobI) );
     }
 
 }

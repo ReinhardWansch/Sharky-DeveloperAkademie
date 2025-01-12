@@ -1,4 +1,4 @@
-class Character extends Mob {
+class Character extends MoB {
     static IMG_PATH= './img/1.Sharkie/1.IDLE/1.png';
     
     width= 203;

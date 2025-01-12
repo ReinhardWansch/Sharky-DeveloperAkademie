@@ -1,5 +1,5 @@
 
-class BgObject extends Mob {
+class BgObject extends MoB {
     yPos= 210;
     width= 960;
     height= 270;

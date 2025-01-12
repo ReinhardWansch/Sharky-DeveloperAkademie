@@ -1,4 +1,4 @@
-class Mob {
+class MoB {
     xPos= 0;
     yPos= 0;
     width= 100;
