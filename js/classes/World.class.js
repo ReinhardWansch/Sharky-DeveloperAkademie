@@ -11,7 +11,7 @@ class World {
         new Enemy()
     ];
     */
-    debugObject= new DrawableObject('./img/6.Botones/Start/1.png');
+    debugObject= new MoB('./img/6.Botones/Start/1.png');
 
     constructor(canvas) {
         this.ctx = canvas.getContext('2d');
@@ -19,9 +19,10 @@ class World {
     }
 
     draw() {
-        console.log('World: draw()'); ///DEBUG
+        // console.log('World: draw()'); ///DEBUG
         this.ctx.clearRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height);
         this.debugObject.draw(this.ctx); ///DEBUG
+        this.debugObject.moveForNextFrame(); ///DEBUG
         requestAnimationFrame(()=>this.draw());
     }
 
