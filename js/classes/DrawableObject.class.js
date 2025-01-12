@@ -6,7 +6,6 @@ class DrawableObject {
     yPos;
 
     constructor(imgPath, scale = 1, x = 0, y = 0) {
-        console.log(imgPath); ///DEBUG
         this.loadImage(imgPath);
         this.xPos = x;
         this.yPos = y;
@@ -17,6 +16,14 @@ class DrawableObject {
     set scale(scale) {
         this.scaleX = scale;
         this.scaleY = scale;
+    }
+
+    get width() {
+        return this.img.width * this.scaleX;
+    }
+
+    get height() {
+        return this.img.height * this.scaleY;
     }
 
     loadImage(imgPath) {
