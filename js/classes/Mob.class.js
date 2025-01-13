@@ -33,29 +33,38 @@ class MOb extends DrawableObject {
 
     drawRepeatingMovingLeft(ctx) {
         let tileCount = ctx.canvas.width / this.width;
-        let xOffset = this.xPos + this.width * tileCount;
-        if (xOffset < ctx.canvas.width) {
-            ctx.drawImage(this.img, xOffset, this.yPos, this.width, this.height);
+        let offsetTemp = this.xPos + this.width * tileCount;
+        if (offsetTemp < ctx.canvas.width) {
+            ctx.drawImage(this.img, offsetTemp, this.yPos, this.width, this.height);
         }
     }
 
-    //Bewegung funktioniert, aber ein Richtungswechsel ist fehlerhaft
-    //könnte das an dem callstack liegen?
-    //wenn ja könnte ich es vielleicht mit settern für speedX und mit setTimeout() lösen
     drawRepeatingMovingRight(ctx) {
         let tileCount = ctx.canvas.width / this.width;
         tileCount--;
-        let xOffset = this.xPos - this.width * tileCount;
-        if (xOffset > 0) {
-            ctx.drawImage(this.img, xOffset-this.width, this.yPos, this.width, this.height);
+        let offsetTemp = this.xPos - this.width * tileCount;
+        if (offsetTemp > 0) {
+            ctx.drawImage(this.img, offsetTemp - this.width, this.yPos, this.width, this.height);
         }
     }
- 
-    isMovingLeft(){
+
+    setSpeedX(value, ctx) {
+        if (this.isMovingLeft() && value > 0) {
+            console.log('changing direction to right'); ///DEBUG
+            this.xPos += ctx.canvas.width;
+        }
+        else if (this.isMovingRight() && value < 0) {
+            console.log('changing direction to left'); ///DEBUG
+            this.xPos -= ctx.canvas.width;
+        }
+        this.speedX= value;
+    }
+
+    isMovingLeft() {
         return this.speedX < 0;
     }
 
-    isMovingRight(){
+    isMovingRight() {
         return this.speedX > 0;
     }
 }
