@@ -6,26 +6,25 @@ class MOb extends DrawableObject {
     constructor(imgPath, scale = 1, repeatingX = false, x = 0, y = 0) {
         super(imgPath, scale, x, y);
         this.repeatingX = repeatingX;
+        // setInterval(this.moveStep, 1000/60);
     }
 
-    //TODO das ist problematisch weil die Geschwindigkeit dann auch von der Framerate abhängig ist
-    //das könnte man mit setItervall machen
-    moveForNextFrame() {
+    moveStep() {
         this.xPos += this.speedX;
         this.yPos += this.speedY;
     }
 
     moveForNextFrameRepeat(ctx) {
-        this.xPos = (ctx.canvas.width % this.width) + this.speedX;
+        this.xPos = (this.xPos + this.speedX) % ctx.canvas.width;
     }
 
     draw(ctx) {
         super.draw(ctx);
-        let canvasWidth = ctx.canvas.width;
-        let tileCount = Math.floor(canvasWidth / this.width);
+        //TODO das funktioniert nur bei Bewegung nach links
+        let tileCount = ctx.canvas.width / this.width;
         let xOffset = this.xPos + this.width * tileCount;
-        if (xOffset < canvasWidth) {
-            console.log(xOffset); ///DEBUG
+        if (xOffset < ctx.canvas.width) {
+            ctx.drawImage(this.img, xOffset, this.yPos, this.width, this.height);
         }
     }
 }

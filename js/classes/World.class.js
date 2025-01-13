@@ -23,7 +23,7 @@ class World {
         // console.log('World: draw()'); ///DEBUG
         this.ctx.clearRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height);
         this.debugObject.draw(this.ctx); ///DEBUG
-        this.debugObject.moveForNextFrame(this.ctx); ///DEBUG
+        this.debugObject.moveForNextFrameRepeat(this.ctx); ///DEBUG
         /*
         // draw background objects
         this.bgObjects.forEach((bgObject) => { 
