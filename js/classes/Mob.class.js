@@ -6,7 +6,6 @@ class MOb extends DrawableObject {
     constructor(imgPath, scale = 1, repeatingX = false, x = 0, y = 0) {
         super(imgPath, scale, x, y);
         this.repeatingX = repeatingX;
-        // setInterval(this.moveStep, 1000/60);
     }
 
     moveStep() {
@@ -49,14 +48,11 @@ class MOb extends DrawableObject {
     }
 
     setSpeedX(value, ctx) {
-        if (this.isMovingLeft() && value > 0) {
-            console.log('changing direction to right'); ///DEBUG
-            this.xPos += ctx.canvas.width;
-        }
-        else if (this.isMovingRight() && value < 0) {
-            console.log('changing direction to left'); ///DEBUG
+        if (value < 0) {
             this.xPos -= ctx.canvas.width;
-        }
+        } else if (this.isMovingLeft() && value >= 0) {
+            this.xPos += ctx.canvas.width;
+        } 
         this.speedX= value;
     }
 
