@@ -39,8 +39,16 @@ class MOb extends DrawableObject {
         }
     }
 
+    //Bewegung funktioniert, aber ein Richtungswechsel ist fehlerhaft
+    //könnte das an dem callstack liegen?
+    //wenn ja könnte ich es vielleicht mit settern für speedX und mit setTimeout() lösen
     drawRepeatingMovingRight(ctx) {
-        console.log('drawRepeatingMovingRight()'); ///DEBUG
+        let tileCount = ctx.canvas.width / this.width;
+        tileCount--;
+        let xOffset = this.xPos - this.width * tileCount;
+        if (xOffset > 0) {
+            ctx.drawImage(this.img, xOffset-this.width, this.yPos, this.width, this.height);
+        }
     }
  
     isMovingLeft(){

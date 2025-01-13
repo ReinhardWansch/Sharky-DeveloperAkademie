@@ -34,7 +34,7 @@ class World {
             bgObject.moveForNextFrame();
         });
         */
-        requestAnimationFrame(() => this.draw());
+        window.requestAnimationFrame(() => this.draw());
     }
 
 }
