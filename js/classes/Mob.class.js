@@ -20,11 +20,34 @@ class MOb extends DrawableObject {
 
     draw(ctx) {
         super.draw(ctx);
-        //TODO das funktioniert nur bei Bewegung nach links
+        if (this.repeatingX) this.drawRepeating(ctx);
+    }
+
+    drawRepeating(ctx) {
+        if (this.isMovingLeft()) {
+            this.drawRepeatingMovingLeft(ctx);
+        } else if (this.isMovingRight()) {
+            this.drawRepeatingMovingRight(ctx);
+        }
+    }
+
+    drawRepeatingMovingLeft(ctx) {
         let tileCount = ctx.canvas.width / this.width;
         let xOffset = this.xPos + this.width * tileCount;
         if (xOffset < ctx.canvas.width) {
             ctx.drawImage(this.img, xOffset, this.yPos, this.width, this.height);
         }
+    }
+
+    drawRepeatingMovingRight(ctx) {
+        console.log('drawRepeatingMovingRight()'); ///DEBUG
+    }
+ 
+    isMovingLeft(){
+        return this.speedX < 0;
+    }
+
+    isMovingRight(){
+        return this.speedX > 0;
     }
 }
