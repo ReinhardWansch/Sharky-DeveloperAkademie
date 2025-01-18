@@ -11,8 +11,8 @@ class World {
         new Enemy()
     ];
     */
-    // debugObject = new MOb('./img/3. Background/Layers/5. Water/D1.png', 1, true);
-    debugObject = new MOb('./img/4. Marcadores/1. Coins/1.png', 1, true);
+    debugObject = new MOb('./img/3. Background/Layers/5. Water/D1.png', 1, true);
+    // debugObject = new MOb('./img/4. Marcadores/1. Coins/1.png', 1, true);
 
     constructor(canvas) {
         this.ctx = canvas.getContext('2d');
