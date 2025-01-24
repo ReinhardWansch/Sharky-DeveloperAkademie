@@ -13,11 +13,6 @@ class DrawableObject {
         this.scaleY = scale;
     }
 
-    set scale(scale) {
-        this.scaleX = scale;
-        this.scaleY = scale;
-    }
-
     get width() {
         return this.img.width * this.scaleX;
     }
@@ -26,24 +21,33 @@ class DrawableObject {
         return this.img.height * this.scaleY;
     }
 
+    scale(scale) {
+        this.scaleX = scale;
+        this.scaleY = scale;
+    }
+
     loadImage(imgPath) {
         this.img = new Image();
         this.img.src = imgPath;
     }
 
     draw(ctx) {
-        ctx.drawImage(
-            this.img,
-            this.xPos,
-            this.yPos,
-            this.width,
-            this.height);
+        this.img.decode()
+            .then(() => {
+                ctx.drawImage(
+                    this.img,
+                    this.xPos,
+                    this.yPos,
+                    this.width,
+                    this.height);
+            });
     }
 
     scaleToWidth(width) {
-        this.scale = width / this.img.width;
+        // this.scale = width / this.img.width;
+        this.scale(width / this.img.width);
     }
-    
+
     scaleToWidthOnly(width) {
         this.scaleX = width / this.img.width;
     }

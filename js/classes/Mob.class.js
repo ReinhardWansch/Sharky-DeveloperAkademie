@@ -1,3 +1,5 @@
+// copilot:ignore
+
 class MOb extends DrawableObject {
     speedX = 0;
     speedY = 0;
@@ -14,46 +16,31 @@ class MOb extends DrawableObject {
     }
 
     moveForNextFrameRepeat(ctx) {
-        this.xPos = (this.xPos + this.speedX) % ctx.canvas.width;
+        console.log('moveForNextFrameRepeat(ctx)'); ///DEBUG
+        console.log('ctx.canvas.width= ' + ctx.canvas.width); ///DEBUG
+        console.log('this.width= ' + this.width); ///DEBUG
+        console.log('this.width - ctx.canvas.width= ' + (this.width - ctx.canvas.width)); ///DEBUG
+        let overWidth = Math.max(this.width - ctx.canvas.width, 0);
+        this.xPos = (this.xPos + this.speedX) % (ctx.canvas.width + overWidth);
+        console.log(overWidth); ///DEBUG
     }
 
     draw(ctx) {
+        // console.log('MOb: draw(ctx)'); ///DEBUG
         super.draw(ctx);
-        if (this.repeatingX) this.drawRepeating(ctx);
-    }
-
-    drawRepeating(ctx) {
-        if (this.isMovingLeft()) {
-            this.drawRepeatingMovingLeft(ctx);
-        } else if (this.isMovingRight()) {
-            this.drawRepeatingMovingRight(ctx);
+        if (this.repeatingX) {
+            let tileCount = Math.max(Math.floor(ctx.canvas.width / this.width), 1);
+            let offsetPosLeftX = this.xPos - tileCount * (this.width);
+            let offsetPosRightX = this.xPos + tileCount * (this.width);
+            if (offsetPosLeftX + this.width > 0)
+                console.log('draw offsetPosLeft'); ///DEBUG
+            ctx.drawImage(this.img, offsetPosLeftX, this.yPos, this.width, this.height);
+            if (offsetPosRightX < ctx.canvas.width) {
+                console.log('draw offsetPosRight'); ///DEBUG
+                console.log('offsetPosRight= ' + offsetPosRightX); ///DEBUG
+                ctx.drawImage(this.img, offsetPosRightX, this.yPos, this.width, this.height);
+            }
         }
-    }
-
-    drawRepeatingMovingLeft(ctx) {
-        let tileCount = ctx.canvas.width / this.width;
-        let offsetTemp = this.xPos + this.width * tileCount;
-        if (offsetTemp < ctx.canvas.width) {
-            ctx.drawImage(this.img, offsetTemp, this.yPos, this.width, this.height);
-        }
-    }
-
-    drawRepeatingMovingRight(ctx) {
-        let tileCount = ctx.canvas.width / this.width;
-        tileCount--;
-        let offsetTemp = this.xPos - this.width * tileCount;
-        if (offsetTemp > 0) {
-            ctx.drawImage(this.img, offsetTemp - this.width, this.yPos, this.width, this.height);
-        }
-    }
-
-    setSpeedX(value, ctx) {
-        if (value < 0) {
-            this.xPos -= ctx.canvas.width;
-        } else if (this.isMovingLeft() && value >= 0) {
-            this.xPos += ctx.canvas.width;
-        } 
-        this.speedX= value;
     }
 
     isMovingLeft() {

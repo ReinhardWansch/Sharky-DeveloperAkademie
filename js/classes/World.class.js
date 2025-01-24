@@ -11,8 +11,9 @@ class World {
         new Enemy()
     ];
     */
-    debugObject = new MOb('./img/3. Background/Layers/5. Water/D1.png', 1, true);
+    // debugObject = new MOb('./img/3. Background/Layers/5. Water/D1.png', 1, true);
     // debugObject = new MOb('./img/4. Marcadores/1. Coins/1.png', 1, true);
+    debugObject = new MOb('./200x200-underworld.jpg', 1, true);
 
     constructor(canvas) {
         this.ctx = canvas.getContext('2d');
@@ -22,10 +23,10 @@ class World {
     }
 
     draw() {
-        // console.log('draw()'); ///DEBUG
+        console.log('draw()'); ///DEBUG
         this.ctx.clearRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height);
         this.debugObject.draw(this.ctx); ///DEBUG
-        this.debugObject.moveForNextFrameRepeat(this.ctx); ///DEBUG
+        // this.debugObject.moveForNextFrameRepeat(this.ctx); ///DEBUG
         /*
         // draw background objects
         this.bgObjects.forEach((bgObject) => { 
@@ -36,7 +37,7 @@ class World {
             bgObject.moveForNextFrame();
         });
         */
-        window.requestAnimationFrame(() => this.draw());
+        // window.requestAnimationFrame(() => this.draw());
     }
 
 }
