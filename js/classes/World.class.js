@@ -1,17 +1,26 @@
 class World {
     ctx;
-    debugObject = new MOb('./spielwiese/200x200-underworld.jpg', 1);
+    bgLights= [];
 
     constructor(canvas) {
         this.ctx = canvas.getContext('2d');
+        this.addBgLights('./img/3. Background/Layers/1. Light/COMPLETO.png');
         this.draw();
     }
 
     draw() {
-        console.log('draw()'); ///DEBUG
         this.ctx.clearRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height);
-        this.debugObject.draw(this.ctx); ///DEBUG
+        this.drawBgLights();
         window.requestAnimationFrame(() => this.draw());
     }
 
+    drawBgLights() {
+        this.bgLights.forEach(bgObject => {
+            bgObject.draw(this.ctx);
+        });
+    }
+
+    addBgLights(path, scale=1, xPos=0, yPos=0) {
+        this.bgLights.push(new BgLights(path, this.ctx, 1, 0, -600, -45));
+    }
 }

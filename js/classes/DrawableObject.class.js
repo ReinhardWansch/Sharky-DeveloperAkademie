@@ -46,8 +46,7 @@ class DrawableObject {
     }
 
     scaleToWidth(width) {
-        // this.scale = width / this.img.width;
-        this.scale(width / this.img.width);
+        this.setScaleFactor(width / this.img.width);
     }
 
     scaleToWidthOnly(width) {
@@ -59,5 +58,13 @@ class DrawableObject {
     }
     scaleToHeightOnly(height) {
         this.scaleY = height / this.img.height;
+    }
+
+    get centerXpos() {
+        return this.xPos + this.width / 2;
+    }
+
+    get centerYpos() {
+        return this.yPos + this.height / 2;
     }
 }
