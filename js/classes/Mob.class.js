@@ -1,5 +1,3 @@
-// copilot:ignore
-
 class MOb extends DrawableObject {
     speedX = 0;
     speedY = 0;
@@ -8,11 +6,6 @@ class MOb extends DrawableObject {
     constructor(imgPath, scale = 1, repeatingX = false, x = 0, y = 0) {
         super(imgPath, scale, x, y);
         this.repeatingX = repeatingX;
-    }
-
-    moveStep() {
-        this.xPos += this.speedX;
-        this.yPos += this.speedY;
     }
 
     moveForNextFrameRepeat(ctx) {

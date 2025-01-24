@@ -21,9 +21,9 @@ class DrawableObject {
         return this.img.height * this.scaleY;
     }
 
-    scale(scale) {
-        this.scaleX = scale;
-        this.scaleY = scale;
+    scale(scaleValue) {
+        this.scaleX = scaleValue;
+        this.scaleY = scaleValue;
     }
 
     loadImage(imgPath) {
