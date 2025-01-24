@@ -1,15 +1,14 @@
-// TODO: Water und Lights müssen noch verschiedene Geschwindigkeiten haben
 class World {
     ctx;
-    bgLights=[];
+    bgLights = [];
     bgObjects = [];
 
     constructor(canvas) {
         this.ctx = canvas.getContext('2d');
         //water
-        this.addMultipleBgObjects('./img/3. Background/Layers/5. Water/D.png', this.ctx.canvas.width, 3, 0);
+        this.addMultipleBgObjects('./img/3. Background/Layers/5. Water/D.png', this.ctx.canvas.width * 2, 10, 0, -3);
         //lights
-        this.addMultipleBgObjects('./img/3. Background/Layers/1. Light/COMPLETO.png', this.ctx.canvas.width*2, 3, -360);
+        this.addMultipleBgObjects('./img/3. Background/Layers/1. Light/COMPLETO.png', this.ctx.canvas.width * 2, 3, -360, -0.5);
         this.draw();
     }
 
@@ -29,25 +28,20 @@ class World {
         });
     }
 
-    addMultipleBgObjects(imgPath, width, amount, yPos) {
+    addMultipleBgObjects(imgPath, width, amount, yPos, speedX) {
         let xPos = 0;
         for (let i = 0; i < amount; i++) {
-            xPos= i*width;
-            this.addBgObject(imgPath, width, xPos, yPos);
+            xPos = i * width;
+            this.addBgObject(imgPath, width, xPos, yPos, speedX);
         }
     }
 
-    addBgObject(imgPath, width, xPos, yPos) {
+    addBgObject(imgPath, width, xPos, yPos, speedX) {
         let bgLightNew = new MOb(imgPath, 1, xPos, yPos);
+        bgLightNew.speedX = speedX;
+        bgLightNew.isMoving = true;
         bgLightNew.img.decode()
             .then(() => bgLightNew.scaleToWidthOnly(width));
         this.bgObjects.push(bgLightNew);
     }
-
-    /*###########*/
-    /*## WATER ##*/
-    /*###########*/
-
-
-
 }
