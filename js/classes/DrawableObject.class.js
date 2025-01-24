@@ -21,9 +21,14 @@ class DrawableObject {
         return this.img.height * this.scaleY;
     }
 
-    scale(scaleValue) {
-        this.scaleX = scaleValue;
-        this.scaleY = scaleValue;
+    scale(scaleFactor) {
+        this.scaleX *= scaleFactor;
+        this.scaleY *= scaleFactor;
+    }
+
+    setScaleFactor(scaleFactor) {
+        this.scaleX = scaleFactor;
+        this.scaleY = scaleFactor;
     }
 
     loadImage(imgPath) {
@@ -32,15 +37,12 @@ class DrawableObject {
     }
 
     draw(ctx) {
-        this.img.decode()
-            .then(() => {
-                ctx.drawImage(
-                    this.img,
-                    this.xPos,
-                    this.yPos,
-                    this.width,
-                    this.height);
-            });
+        ctx.drawImage(
+            this.img,
+            this.xPos,
+            this.yPos,
+            this.width,
+            this.height);
     }
 
     scaleToWidth(width) {
