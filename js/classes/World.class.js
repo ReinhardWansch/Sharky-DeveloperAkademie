@@ -1,6 +1,6 @@
 class World {
     ctx;
-    bgLights= [];
+    bgLights = [];
 
     constructor(canvas) {
         this.ctx = canvas.getContext('2d');
@@ -20,7 +20,11 @@ class World {
         });
     }
 
-    addBgLights(path, scale=1, xPos=0, yPos=0) {
-        this.bgLights.push(new BgLights(path, this.ctx, 1, 0, -600, -45));
+    addBgLights(imgPath) {
+        let bgLightsNew = new DrawableObject(imgPath);
+        bgLightsNew.scaleToWidthOnly(this.ctx.canvas.width*2);
+        bgLightsNew.xPos = -this.ctx.canvas.width/2;
+        bgLightsNew.yPos = -360;
+        this.bgLights.push(bgLightsNew);
     }
 }
