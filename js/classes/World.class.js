@@ -1,43 +1,22 @@
+// TODO: Water und Lights müssen noch verschiedene Geschwindigkeiten haben
 class World {
     ctx;
-    bgLights = [];
+    bgLights=[];
     bgObjects = [];
 
     constructor(canvas) {
         this.ctx = canvas.getContext('2d');
-        this.addMultipleBgLights('./img/3. Background/Layers/1. Light/COMPLETO.png', this.ctx.canvas.width*2, 3, -360);
+        //water
+        this.addMultipleBgObjects('./img/3. Background/Layers/5. Water/D.png', this.ctx.canvas.width, 3, 0);
+        //lights
+        this.addMultipleBgObjects('./img/3. Background/Layers/1. Light/COMPLETO.png', this.ctx.canvas.width*2, 3, -360);
         this.draw();
     }
 
     draw() {
         this.ctx.clearRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height);
-        this.drawBgLights();
+        this.drawBgObjects();
         window.requestAnimationFrame(() => this.draw());
-    }
-
-    /*###############*/
-    /*## BG LIGHTS ##*/
-    /*###############*/
-
-    drawBgLights() {
-        this.bgLights.forEach(bgObject => {
-            bgObject.draw(this.ctx);
-        });
-    }
-
-    addMultipleBgLights(imgPath, width, amount, yPos) {
-        let xPos = 0;
-        for (let i = 0; i < amount; i++) {
-            xPos= i*width;
-            this.addBgLight(imgPath, width, xPos, yPos);
-        }
-    }
-
-    addBgLight(imgPath, width, xPos, yPos) {
-        let bgLightNew = new MOb(imgPath, 1, xPos, yPos);
-        bgLightNew.img.decode()
-            .then(() => bgLightNew.scaleToWidthOnly(width));
-        this.bgLights.push(bgLightNew);
     }
 
     /*################*/
@@ -50,8 +29,25 @@ class World {
         });
     }
 
-    addBgObject(imgPath, width) {
-        let bgObjectNew = new MOb(imgPath);
-        bgObjectNew.scaleToWidth(this.ctx.canvas.width * 2);
+    addMultipleBgObjects(imgPath, width, amount, yPos) {
+        let xPos = 0;
+        for (let i = 0; i < amount; i++) {
+            xPos= i*width;
+            this.addBgObject(imgPath, width, xPos, yPos);
+        }
     }
+
+    addBgObject(imgPath, width, xPos, yPos) {
+        let bgLightNew = new MOb(imgPath, 1, xPos, yPos);
+        bgLightNew.img.decode()
+            .then(() => bgLightNew.scaleToWidthOnly(width));
+        this.bgObjects.push(bgLightNew);
+    }
+
+    /*###########*/
+    /*## WATER ##*/
+    /*###########*/
+
+
+
 }

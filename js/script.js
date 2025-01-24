@@ -17,7 +17,7 @@ function toRadians(degrees) {
 /*###########*/
 
 function tuEs() {
-    world.bgLights.forEach(bgLightI => {
+    world.bgObjects.forEach(bgLightI => {
         bgLightI.speedX = -5;
     });
 }
