@@ -1,12 +1,11 @@
 class MOb extends DrawableObject {
-    speedX = 0;
-    speedY = 0;
+    speed= new Speed(0,0);
     isMoving = false;
 
     moveForNextFrame(ctx) {
         if (this.isMoving){
-            this.xPos += this.speedX;
-            this.yPos += this.speedY;
+            this.position.x += this.speed.speedX;
+            this.position.y += this.speed.speedY;
         }
     }
 

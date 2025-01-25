@@ -17,5 +17,6 @@ function toRadians(degrees) {
 /*###########*/
 
 function tuEs() {
-    console.log(new Point()); ///DEBUG
+    world.character.speed.speedX = 1;
+    world.character.isMoving = true;
 }

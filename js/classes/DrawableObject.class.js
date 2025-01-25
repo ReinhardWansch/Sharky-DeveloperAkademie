@@ -35,11 +35,10 @@ class DrawableObject {
         return this.img.height * this.scaleFactor.factorY;
     }
 
-    get centerXpos() {
-        return this.position.x + this.width / 2;
-    }
-
-    get centerYpos() {
-        return this.position.y + this.height / 2;
+    get centerPoint() {
+        return new Point(
+            this.position.x + this.width / 2,
+            this.position.y + this.height / 2
+        );
     }
 }

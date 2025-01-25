@@ -1,11 +1,11 @@
 class World {
     ctx;
-    bgLights = [];
-    bgObjects = level01.bgObjects;
-    character = level01.character;
+    level= new Level(this.ctx);
+    character;
 
     constructor(canvas) {
         this.ctx = canvas.getContext('2d');
+        this.setCharacter();
         this.draw();
     }
 
@@ -16,22 +16,22 @@ class World {
         window.requestAnimationFrame(() => this.draw());
     }
 
-    /*################*/
-    /*## BG OBJECTS ##*/
-    /*################*/
-
-    drawBgObjects() {
-        this.bgObjects.forEach(bgObject => {
-            bgObject.draw(this.ctx);
-        });
-    }
-
     /*###############*/
     /*## CHARACTER ##*/
     /*###############*/
-
+    
+    setCharacter() {
+        let newCharacter= new IdleMOb('./img/1.Sharkie/1.IDLE/1.png', 0.25, 10, 50);
+        newCharacter.position.x = 10;
+        newCharacter.position.y = 50;
+        newCharacter.scaleFactor.scaleTo(0.25);
+        this.character = newCharacter;
+    }
+    
     drawCharacter() {
         this.character.draw(this.ctx);
     }
+
+    
     
 }

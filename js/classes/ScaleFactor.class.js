@@ -12,6 +12,11 @@ class ScaleFactor {
         this.factorY *= factor;
     }
 
+    scaleTo(factor) {
+        this.factorX = factor;
+        this.factorY = factor;
+    }
+
     scaleToWdith(width) {
         let scaleFactor = width / this.img.width;
         this.scaleBy(scaleFactor);
