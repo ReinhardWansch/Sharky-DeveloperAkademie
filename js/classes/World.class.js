@@ -1,18 +1,20 @@
 class World {
     ctx;
-    level= new Level(this.ctx);
+    level;
     character;
 
-    constructor(canvas) {
+    constructor(canvas, level) {
         this.ctx = canvas.getContext('2d');
+        this.level = level;
         this.setCharacter();
         this.draw();
     }
 
     draw() {
         this.ctx.clearRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height);
-        this.drawBgObjects();
-        this.drawCharacter();
+        this.level.drawBgObjects(this.ctx);
+        this.level.drawBgLights(this.ctx);
+        this.character.draw(this.ctx);
         window.requestAnimationFrame(() => this.draw());
     }
 

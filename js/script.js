@@ -1,6 +1,8 @@
-let canvas = document.getElementById('canvas');
-let world = new World(canvas);
+console.log('script.js'); ///DEBUG
 
+let canvas = document.getElementById('canvas');
+prepareLevel1();
+let world = new World(canvas, level1);
 function init() {
 }
 
