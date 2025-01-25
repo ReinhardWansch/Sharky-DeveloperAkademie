@@ -1,26 +1,12 @@
 class DrawableObject {
     img;
-    scaleX;
-    scaleY;
-    xPos;
-    yPos;
+    position;
+    scaleFactor;
 
-    constructor(imgPath, scale = 1, x = 0, y = 0) {
+    constructor(imgPath) {
         this.loadImage(imgPath);
-        this.xPos = x;
-        this.yPos = y;
-        this.scaleX = scale;
-        this.scaleY = scale;
-    }
-
-    scale(scaleFactor) {
-        this.scaleX *= scaleFactor;
-        this.scaleY *= scaleFactor;
-    }
-
-    setScaleFactor(scaleFactor) {
-        this.scaleX = scaleFactor;
-        this.scaleY = scaleFactor;
+        this.position = new Point(0, 0);
+        this.scaleFactor = new ScaleFactor();
     }
 
     loadImage(imgPath) {
@@ -31,25 +17,10 @@ class DrawableObject {
     draw(ctx) {
         ctx.drawImage(
             this.img,
-            this.xPos,
-            this.yPos,
+            this.position.x,
+            this.position.y,
             this.width,
             this.height);
-    }
-
-    scaleToWidth(width) {
-        this.setScaleFactor(width / this.img.width);
-    }
-
-    scaleToWidthOnly(width) {
-        this.scaleX = width / this.img.width;
-    }
-
-    scaleToHeight(height) {
-        this.scale = height / this.img.height;
-    }
-    scaleToHeightOnly(height) {
-        this.scaleY = height / this.img.height;
     }
 
     /*############*/
@@ -57,18 +28,18 @@ class DrawableObject {
     /*############*/
 
     get width() {
-        return this.img.width * this.scaleX;
+        return this.img.width * this.scaleFactor.factorX;
     }
 
     get height() {
-        return this.img.height * this.scaleY;
+        return this.img.height * this.scaleFactor.factorY;
     }
 
     get centerXpos() {
-        return this.xPos + this.width / 2;
+        return this.position.x + this.width / 2;
     }
 
     get centerYpos() {
-        return this.yPos + this.height / 2;
+        return this.position.y + this.height / 2;
     }
 }

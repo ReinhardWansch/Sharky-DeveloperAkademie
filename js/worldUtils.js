@@ -17,7 +17,7 @@ function addBgObjectToArr(imgPath, width, xPos, yPos, speedX) {
     newBgObject.speedX = speedX;
     newBgObject.isMoving = true;
     newBgObject.img.decode()
-        .then(() => newBgObject.scaleToWidthOnly(width));
+        .then(() => newBgObject.scaleFactor.scaleToWidthOnly(width));
     bgObjectsArr.push(newBgObject);
 }
 
