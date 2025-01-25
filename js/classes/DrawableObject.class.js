@@ -13,14 +13,6 @@ class DrawableObject {
         this.scaleY = scale;
     }
 
-    get width() {
-        return this.img.width * this.scaleX;
-    }
-
-    get height() {
-        return this.img.height * this.scaleY;
-    }
-
     scale(scaleFactor) {
         this.scaleX *= scaleFactor;
         this.scaleY *= scaleFactor;
@@ -58,6 +50,18 @@ class DrawableObject {
     }
     scaleToHeightOnly(height) {
         this.scaleY = height / this.img.height;
+    }
+
+    /*############*/
+    /*## GETTER ##*/
+    /*############*/
+
+    get width() {
+        return this.img.width * this.scaleX;
+    }
+
+    get height() {
+        return this.img.height * this.scaleY;
     }
 
     get centerXpos() {
