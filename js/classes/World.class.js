@@ -3,8 +3,8 @@ class World {
     level;
     character;
 
-    constructor(canvas, level) {
-        this.ctx = canvas.getContext('2d');
+    constructor(ctx, level) {
+        this.ctx = ctx;
         this.level = level;
         this.setCharacter();
         this.draw();
@@ -13,7 +13,6 @@ class World {
     draw() {
         this.ctx.clearRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height);
         this.level.drawBgObjects(this.ctx);
-        this.level.drawBgLights(this.ctx);
         this.character.draw(this.ctx);
         window.requestAnimationFrame(() => this.draw());
     }
@@ -22,6 +21,7 @@ class World {
     /*## CHARACTER ##*/
     /*###############*/
     
+    //TODO Das gehört wo anders hin
     setCharacter() {
         let newCharacter= new IdleMOb('./img/1.Sharkie/1.IDLE/1.png', 0.25, 10, 50);
         newCharacter.position.x = 10;

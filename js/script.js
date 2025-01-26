@@ -1,8 +1,11 @@
-console.log('script.js'); ///DEBUG
-
 let canvas = document.getElementById('canvas');
-prepareLevel1();
-let world = new World(canvas, level1);
+let ctx = canvas.getContext('2d');
+let level1= new Level(ctx);
+level1.bgObjects= BG_OBJECTS_LEVEL_1;
+let world = new World(ctx, level1);
+
+
+
 function init() {
 }
 
@@ -19,6 +22,8 @@ function toRadians(degrees) {
 /*###########*/
 
 function tuEs() {
-    world.character.speed.speedX = 1;
-    world.character.isMoving = true;
+    // world.character.speed.speedX = 1;
+    // world.character.isMoving = true;
+    world.level.bgObjects[0].speed.speedX = -1;
+    world.level.bgObjects[0].isMoving = true;
 }

@@ -1,38 +1,29 @@
 class Level {
     ctx;
     bgObjects = [];
-    bgLights = [];
+    // bgLights = [];
 
     constructor(ctx) {
         this.ctx = ctx;
     }
 
-    addBgObjectsRepeating(imgPath, amount) {
-        let xPos = 0;
-        for (let i = 0; i < amount; i++) {
-            xPos = i * width;
-            this.addBgObject(imgPath);
-        }
-    }
-
-    addBgObject(imgPath) {
-        let newBgObject = new MOb(imgPath);
-        newBgObject.img.decode().then(() => {
-            newBgObject.scaleFactor.scaleToWdithOnly(this.ctx.canvas.width*2);
-        });
+    addBgObject(imgPath, repeatAmount = 1) {
+        let newBgObject = new BgObject(imgPath, repeatAmount);
         this.bgObjects.push(newBgObject);
     }
 
     drawBgObjects(ctx) {
-        this.bgObjects.forEach(bgObject => {
-            bgObject.draw(ctx);
+        this.bgObjects.forEach(bgObjectI => {
+            bgObjectI.draw(ctx);
         });
     }
 
+    /*
     drawBgLights(ctx) {
         this.bgLights.forEach(bgLight => {
             bgLight.draw(ctx);
         });
     }
+    */
 
 }
