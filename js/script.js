@@ -24,6 +24,7 @@ function toRadians(degrees) {
 function tuEs() {
     // world.character.speed.speedX = 1;
     // world.character.isMoving = true;
-    world.level.bgObjects[0].speed.speedX = -1;
+    world.level.bgObjects[0].speed.speedX = -3;
     world.level.bgObjects[0].isMoving = true;
+    console.log(world.level.bgObjects[0]);
 }
