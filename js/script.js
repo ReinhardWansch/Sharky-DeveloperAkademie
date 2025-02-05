@@ -40,3 +40,7 @@ function logKeyboard() {
 function logCharacter() {
     console.log(world.character);
 }  
+
+function logCharacterVelocity() {
+    console.log(world.character.velocity);
+}

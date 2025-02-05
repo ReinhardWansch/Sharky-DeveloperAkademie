@@ -1,11 +1,11 @@
 class MOb extends DrawableObject {
     keyboard;
-    // speed;
-    speed = new Speed(0, 0); //das könnte man nach velocity umbenennen
+    speed= 1;
+    velocity = new Velocity(0, 0);
 
     moveForNextFrame() {
-        this.position.x += this.speed.speedX;
-        this.position.y += this.speed.speedY;
+        this.position.x += this.velocity.velocityX;
+        this.position.y += this.velocity.velocityY;
     }
 
     draw(ctx) {
@@ -17,15 +17,15 @@ class MOb extends DrawableObject {
         this.keyboard = keyboard;
     }
 
-    set speedX(value) {
-        this.speed.speedX = value;
+    set velocityX(value) {
+        this.velocity.velocityX = value;
     }
 
-    set speedY(value) {
-        this.speed.speedY = value;
+    set velocityY(value) {
+        this.velocity.velocityY = value;
     }
 
     get isMoving() {
-        return !this.speed.isZero();
+        return !this.velocity.isZero();
     }
 }

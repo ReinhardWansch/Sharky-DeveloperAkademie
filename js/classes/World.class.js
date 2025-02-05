@@ -31,6 +31,7 @@ class World {
         newCharacter.position.x = 10;
         newCharacter.position.y = 50;
         newCharacter.scaleFactor.scaleTo(0.25);
+        newCharacter.speed= 5;
         newCharacter.setKeyboard(new Keyboard());
         newCharacter.keyboard.addKeyListeners(document);
         this.character = newCharacter;

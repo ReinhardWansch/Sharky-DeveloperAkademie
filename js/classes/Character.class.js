@@ -9,14 +9,14 @@ class Character extends IdleMOb {
     }
 
     startMovingRight() {
-        this.speedX = 2; //this.speed statt 2
+        this.velocityX = this.speed;
     }
 
     startMovingLeft() {
-        this.speedX = -2; //this.speed*-1 statt 2
+        this.velocityX = this.speed * -1; //this.speed*-1 statt 2
     }
 
     stopMoving() {
-        this.speed.setToZero();
+        this.velocity.setToZero();
     }
 }
