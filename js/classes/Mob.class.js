@@ -1,6 +1,5 @@
 class MOb extends DrawableObject {
     speed= new Speed(0,0);
-    isMoving = false;
 
     moveForNextFrame() {
         if (this.isMoving){
@@ -12,5 +11,17 @@ class MOb extends DrawableObject {
     draw(ctx) {
         super.draw(ctx);
         this.moveForNextFrame();
+    }
+
+    set speedX(value) {
+        this.speed.speedX = value;
+    }
+
+    set speedY(value) {
+        this.speed.speedY = value;
+    }
+
+    get isMoving() {
+        return !this.speed.isZero();
     }
 }

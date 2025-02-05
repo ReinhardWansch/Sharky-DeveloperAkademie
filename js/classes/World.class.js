@@ -33,6 +33,7 @@ class World {
     
     drawCharacter() {
         this.character.draw(this.ctx);
+        
     }
 
     

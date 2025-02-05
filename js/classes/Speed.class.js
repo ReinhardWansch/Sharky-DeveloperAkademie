@@ -6,4 +6,8 @@ class Speed {
         this.speedX = speedX;
         this.speedY = speedY;
     }
+
+    isZero() {
+        return this.speedX === 0 && this.speedY === 0;
+    }
 }

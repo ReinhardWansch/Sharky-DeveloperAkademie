@@ -3,7 +3,7 @@ let ctx = canvas.getContext('2d');
 let level1= new Level(ctx);
 level1.bgObjects= BG_OBJECTS_LEVEL_1;
 let world = new World(ctx, level1);
-let keyboard = {};
+let keyboard = new Keyboard();
 
 
 
@@ -45,9 +45,6 @@ function toRadians(degrees) {
 /*###########*/
 
 function tuEs() {
-    // world.character.speed.speedX = 1;
-    // world.character.isMoving = true;
-    world.level.bgObjects[0].speed.speedX = -3;
-    world.level.bgObjects[0].isMoving = true;
-    console.log(world.level.bgObjects[0]);
+    // world.character.speedX= 1;
+    world.level.bgObjects[0].speedX= 1;
 }
