@@ -7,7 +7,7 @@ class BgObject extends MOb {
     }
 
     draw(ctx) {
-        // console.log('BgObject: draw()'); ///DEBUG
+        // console.log('BgObject: draw()');
         let x = 0;
         for (let i = 0; i < this.repeatAmount; i++) {
             x += this.width;
