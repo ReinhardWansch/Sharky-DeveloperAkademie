@@ -29,8 +29,9 @@ function toRadians(degrees) {
 /*###########*/
 
 function tuEs() {
-    // world.character.speedX= 1;
-    // world.level.bgObjects[0].speedX= -1;
+    world.ctx.scale(-1, 1);
+    world.ctx.translate(-world.ctx.canvas.width, 0);
+    world.draw();
 }
 
 function logKeyboard() {
@@ -43,4 +44,12 @@ function logCharacter() {
 
 function logCharacterVelocity() {
     console.log(world.character.velocity);
+}
+
+function logCharacterScaleFactor() {
+    console.log(world.character.scaleFactor);
+}
+
+function logCharacterPosition() {
+    console.log(world.character.position);
 }

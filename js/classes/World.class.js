@@ -27,7 +27,8 @@ class World {
     
     //TODO Das gehört wo anders hin
     setCharacter() {
-        let newCharacter= new Character('./img/1.Sharkie/1.IDLE/1.png', 0.25, 10, 50);
+        // let newCharacter= new Character('./img/1.Sharkie/1.IDLE/1.png', 0.25, 10, 50);
+        let newCharacter= new Character('./img/1.Sharkie/1.IDLE/1-mod-redBorder.png', 0.25, 10, 50);
         newCharacter.position.x = 10;
         newCharacter.position.y = 50;
         newCharacter.scaleFactor.scaleTo(0.25);
