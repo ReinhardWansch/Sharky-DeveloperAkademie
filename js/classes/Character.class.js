@@ -1,5 +1,8 @@
 class Character extends IdleMOb {
+
     isFacingLeft = false;
+
+    /*** DRAWING ***/
 
     moveForNextFrame() {
         super.moveForNextFrame();
@@ -7,6 +10,26 @@ class Character extends IdleMOb {
         else if (this.keyboard.ArrowLeft) this.startMovingLeft();
         else this.stopMoving();
     }
+
+    draw(ctx) {
+        ctx.save();
+        if (this.isFacingLeft) {
+            this.flipCanvasHorizontalyAroundLeftEdge(ctx);
+            this.translateCanvasFacingLeft(ctx);
+        }
+        super.draw(ctx);
+        ctx.restore();
+    }
+
+    flipCanvasHorizontalyAroundLeftEdge(ctx) {
+        ctx.scale(-1, 1);
+    }
+
+    translateCanvasFacingLeft(ctx) {      
+        ctx.translate(-(this.position.x*2 + this.width), 0);
+    }
+
+    /*** MOVING ***/
 
     startMovingRight() {
         this.velocityX = this.speed;
@@ -22,21 +45,4 @@ class Character extends IdleMOb {
         this.velocity.setToZero();
     }
 
-    draw(ctx) {
-        ctx.save();
-        if (this.isFacingLeft) {
-            this.flipCanvasHorizontalyAroundLeftEdge(ctx);
-            this.translateFacingLeft(ctx);
-        }
-        super.draw(ctx);
-        ctx.restore();
-    }
-
-    flipCanvasHorizontalyAroundLeftEdge(ctx) {
-        ctx.scale(-1, 1);
-    }
-
-    translateFacingLeft(ctx) {      
-        ctx.translate(-(this.position.x*2 + this.width), 0);
-    }
 }
