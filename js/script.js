@@ -4,12 +4,12 @@ let level1= new Level(ctx);
 level1.bgObjects= BG_OBJECTS_LEVEL_1;
 let world = new World(ctx);
 world.setLevel(level1);
-setKeyboard();
+setKeyboard(world.character);
 world.draw();
 
-function setKeyboard() {
-    world.character.setKeyboard(new Keyboard());
-    world.character.keyboard.addKeyListeners(document);
+function setKeyboard(mob) {
+    mob.setKeyboard(new Keyboard());
+    mob.keyboard.addKeyListeners(document);
 }
 
 /*##########*/
@@ -30,9 +30,13 @@ function toRadians(degrees) {
 
 function tuEs() {
     // world.character.speedX= 1;
-    world.level.bgObjects[0].speedX= -1;
+    // world.level.bgObjects[0].speedX= -1;
 }
 
 function logKeyboard() {
     console.log(world.character.keyboard);
 }
+
+function logCharacter() {
+    console.log(world.character);
+}  

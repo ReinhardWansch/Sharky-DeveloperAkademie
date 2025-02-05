@@ -1,12 +1,11 @@
 class MOb extends DrawableObject {
     keyboard;
-    speed= new Speed(0,0);
+    // speed;
+    speed = new Speed(0, 0); //das könnte man nach velocity umbenennen
 
     moveForNextFrame() {
-        if (this.isMoving){
-            this.position.x += this.speed.speedX;
-            this.position.y += this.speed.speedY;
-        }
+        this.position.x += this.speed.speedX;
+        this.position.y += this.speed.speedY;
     }
 
     draw(ctx) {

@@ -10,4 +10,9 @@ class Speed {
     isZero() {
         return this.speedX === 0 && this.speedY === 0;
     }
+
+    setToZero() {
+        this.speedX = 0;
+        this.speedY = 0;
+    }
 }
