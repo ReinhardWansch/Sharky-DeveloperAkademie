@@ -1,4 +1,5 @@
 class MOb extends DrawableObject {
+    keyboard;
     speed= new Speed(0,0);
 
     moveForNextFrame() {
@@ -11,6 +12,10 @@ class MOb extends DrawableObject {
     draw(ctx) {
         super.draw(ctx);
         this.moveForNextFrame();
+    }
+
+    setKeyboard(keyboard) {
+        this.keyboard = keyboard;
     }
 
     set speedX(value) {

@@ -3,11 +3,10 @@ class World {
     level;
     character;
 
-    constructor(ctx, level) {
+    constructor(ctx) {
         this.ctx = ctx;
-        this.level = level;
         this.setCharacter();
-        this.draw();
+        // this.draw();
     }
 
     draw() {
@@ -16,6 +15,10 @@ class World {
         this.level.drawBgObjects(this.ctx);
         this.character.draw(this.ctx);
         window.requestAnimationFrame(() => this.draw());
+    }
+
+    setLevel(level) {
+        this.level = level;
     }
 
     /*###############*/
@@ -28,12 +31,13 @@ class World {
         newCharacter.position.x = 10;
         newCharacter.position.y = 50;
         newCharacter.scaleFactor.scaleTo(0.25);
+        newCharacter.setKeyboard(new Keyboard());
+        newCharacter.keyboard.addKeyListeners(document);
         this.character = newCharacter;
     }
     
     drawCharacter() {
-        this.character.draw(this.ctx);
-        
+        this.character.draw(this.ctx); 
     }
 
     
