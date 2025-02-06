@@ -9,7 +9,7 @@ world.draw();
 
 function setKeyboard(mob) {
     mob.setKeyboard(new Keyboard());
-    mob.keyboard.addKeyListeners(document);
+    mob.keyboard.addKeyListenersTo(document);
 }
 
 /*##########*/
