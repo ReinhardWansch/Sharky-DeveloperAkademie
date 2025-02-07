@@ -12,6 +12,12 @@ function setKeyboard(mob) {
     mob.keyboard.addKeyListenersTo(document);
 }
 
+/*#############*/
+/*## FAVICON ##*/
+/*#############*/
+
+
+
 /*##########*/
 /*## MISC ##*/
 /*##########*/

@@ -17,6 +17,10 @@ class World {
         window.requestAnimationFrame(() => this.draw());
     }
 
+    /*###########*/
+    /*## LEVEL ##*/
+    /*###########*/
+
     setLevel(level) {
         this.level = level;
     }
