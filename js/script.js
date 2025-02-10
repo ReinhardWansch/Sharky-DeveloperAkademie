@@ -12,12 +12,6 @@ function setKeyboard(mob) {
     mob.keyboard.addKeyListenersTo(document);
 }
 
-/*#############*/
-/*## FAVICON ##*/
-/*#############*/
-
-
-
 /*##########*/
 /*## MISC ##*/
 /*##########*/
@@ -47,6 +41,10 @@ function logKeyboard() {
 function logCharacter() {
     console.log(world.character);
 }  
+
+function logCameraoffset() {
+    console.log(world.character.cameraOffset);
+}
 
 function logCharacterVelocity() {
     console.log(world.character.velocity);

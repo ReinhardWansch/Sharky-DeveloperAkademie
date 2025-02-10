@@ -1,14 +1,20 @@
 class Character extends IdleMOb {
-
     isFacingLeft = false;
+    cameraOffset= 0;
 
     /*** DRAWING ***/
 
     moveForNextFrame() {
-        super.moveForNextFrame();
         if (this.keyboard.ArrowRight) this.startMovingRight();
         else if (this.keyboard.ArrowLeft) this.startMovingLeft();
         else this.stopMoving();
+        this.moveCameraForNextFrame();
+        super.moveForNextFrame();
+    }
+
+    moveCameraForNextFrame() {
+        if (this.keyboard.ArrowRight) this.cameraOffset += this.velocity.velocityX;
+        if (this.keyboard.ArrowLeft) this.cameraOffset -= this.velocity.velocityX;
     }
 
     draw(ctx) {
