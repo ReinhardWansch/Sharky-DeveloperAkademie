@@ -23,6 +23,28 @@ class DrawableObject {
             this.height);
     }
 
+    /*#############*/
+    /*## SCALING ##*/
+    /*#############*/
+
+    scaleToHeightOnly(height) {
+        this.scaleFactor.factorY = height / this.img.height;
+    }
+
+    scaleToHeight(height) {
+        this.scaleToHeightOnly(height);
+        this.scaleFactor.factorX = this.scaleFactor.factorY;
+    }
+
+    scaleToWidthOnly(width) {
+        this.scaleFactor.factorX = width / this.img.width;
+    }
+
+    scaleToWidh(width) {
+        this.scaleToWidthOnly(width);
+        this.scaleFactor.factorY = this.scaleFactor.factorX;
+    }
+
     /*############*/
     /*## GETTER ##*/
     /*############*/

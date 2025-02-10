@@ -17,9 +17,10 @@ class ScaleFactor {
         this.factorY = factor;
     }
 
+    /*
     scaleToWdith(width) {
-        let scaleFactor = width / this.img.width;
-        this.scaleBy(scaleFactor);
+        this.factorX = width / this.img.width;
+        this.factorY = this.factorX;
     }
 
     scaleToWdithOnly(width) {
@@ -27,12 +28,13 @@ class ScaleFactor {
     }
 
     scaleToHeight(height) {
-        let scaleFactor = height / this.img.height;
+        let ratio = (this.factorX / this.factorY);
         this.scaleBy(scaleFactor);
     }
 
     scaleToHeightOnly(height) {
         this.factorY = height / this.img.height;
     }
+    */
 
 }

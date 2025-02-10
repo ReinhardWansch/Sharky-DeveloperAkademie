@@ -1,11 +1,6 @@
 class Level {
-    ctx;
     bgObjects = [];
     // bgLights = [];
-
-    constructor(ctx) {
-        this.ctx = ctx;
-    }
 
     addBgObject(imgPath, repeatAmount = 1) {
         let newBgObject = new BgObject(imgPath, repeatAmount);
@@ -18,12 +13,10 @@ class Level {
         });
     }
 
-    /*
-    drawBgLights(ctx) {
-        this.bgLights.forEach(bgLight => {
-            bgLight.draw(ctx);
+    scaleBGObjectsToHeight(height) {
+        console.log(`Level.scaleBGObjectsToHeight(${height})`); ///DEBUG
+        this.bgObjects.forEach(bgObjectI => {
+            bgObjectI.scaleToHeight(height);
         });
     }
-    */
-
 }
