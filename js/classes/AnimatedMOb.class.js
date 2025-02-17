@@ -1,7 +1,7 @@
 class AnimatedMOb extends MOb {
     idleImages=[];
+    idleDelay; //[frames]
+    currentIdleImageIndex=0;
 
-    setIdleImages(images) {
-        this.idleImages = images;
-    }
+    
 }
