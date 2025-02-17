@@ -1,4 +1,4 @@
-class Character extends IdleMOb {
+class Character extends AnimatedMOb {
     isFacingLeft = false;
 
     draw(ctx) {
