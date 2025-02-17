@@ -6,13 +6,15 @@ level1.bgObjects= BG_OBJECTS_LEVEL_1;
 level1.scaleBGObjectsToHeight(canvas.height);
 let world = new World(ctx);
 world.setLevel(level1);
-setKeyboard(world.character);
+// setKeyboard(world.character);
 world.draw();
 
+/*
 function setKeyboard(mob) {
     mob.setKeyboard(new Keyboard());
     mob.keyboard.addKeyListenersTo(document);
 }
+*/
 
 /*##########*/
 /*## MISC ##*/

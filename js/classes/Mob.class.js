@@ -1,5 +1,6 @@
 class MOb extends DrawableObject {
     keyboard;
+    speed;
     velocity = new Velocity(0, 0);
 
     constructor(imgPath, speed= 1) {

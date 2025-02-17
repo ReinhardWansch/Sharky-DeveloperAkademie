@@ -1,3 +1,7 @@
 class IdleMOb extends MOb {
-    imagesWalking=[];
+    imagesIdle=[];
+
+    setImagesIdle(images) {
+        this.imagesIdle = images;
+    }
 }
