@@ -14,9 +14,16 @@ class Level {
     }
 
     scaleBGObjectsToHeight(height) {
-        console.log(`Level.scaleBGObjectsToHeight(${height})`); ///DEBUG
         this.bgObjects.forEach(bgObjectI => {
             bgObjectI.scaleToHeight(height);
         });
+    }
+
+    async decodeAllBgImages() {
+        let promises = [];
+        this.bgObjects.forEach(bgObjectI => {
+            promises.push(bgObjectI.img.decode());
+        });
+        return Promise.all(promises);
     }
 }

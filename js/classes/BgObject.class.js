@@ -17,4 +17,5 @@ class BgObject extends MOb {
         }
         this.moveForNextFrame();
     };
+    
 }

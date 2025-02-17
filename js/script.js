@@ -2,19 +2,17 @@ let canvas = document.getElementById('canvas');
 let ctx = canvas.getContext('2d');
 let level1= new Level(ctx);
 level1.bgObjects= BG_OBJECTS_LEVEL_1;
-// level1.addBgObject(BG_OBJECTS_LEVEL_1, 2);
 level1.scaleBGObjectsToHeight(canvas.height);
 let world = new World(ctx);
 world.setLevel(level1);
-// setKeyboard(world.character);
-world.draw();
-
-/*
-function setKeyboard(mob) {
-    mob.setKeyboard(new Keyboard());
-    mob.keyboard.addKeyListenersTo(document);
-}
-*/
+world.level.decodeAllBgImages()
+    .then(()=> {
+        console.log('bg-Images decoded'); ///DEBUG
+        world.draw();
+    }).catch(()=>{
+        console.log('Fehler beim bg-Images decoden!'); ///DEBUG
+    });
+// world.draw();
 
 /*##########*/
 /*## MISC ##*/
@@ -33,9 +31,8 @@ function toRadians(degrees) {
 /*###########*/
 
 function tuEs() {
-    ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
-    level1.bgObjects[0].scaleToHeight(ctx.canvas.height/4);
-    level1.bgObjects[0].draw(ctx);
+    let bg0= world.level.bgObjects[0];
+    console.log(bg0.img.decode()); ///DEBUG
 }
 
 function drawBgObject(index) {
