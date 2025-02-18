@@ -61,9 +61,9 @@ class World {
         newCharacter.keyboard.addKeyListenersTo(document);
         this.character = newCharacter;
     }
-    
-    drawCharacter() {
+
+    /* drawCharacter() {
         this.character.draw(this.ctx); 
-    }
+    } */
     
 }
