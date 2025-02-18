@@ -13,5 +13,5 @@ const BG_OBJECTS_LEVEL_1 = [
 /*#############*/
 
 const ENEMIES_LEVEL_1 = [
-    
+ 
 ];
