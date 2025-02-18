@@ -4,6 +4,7 @@ let level1= new Level(ctx);
 level1.bgObjects= BG_OBJECTS_LEVEL_1;
 level1.scaleBGObjectsToHeight(canvas.height);
 let world = new World(ctx);
+world.character.setIdleImages(sharkyIdleImages);
 world.setLevel(level1);
 world.level.decodeAllBgImages()
     .then(()=> {
@@ -12,7 +13,6 @@ world.level.decodeAllBgImages()
     }).catch(()=>{
         console.log('Fehler beim bg-Images decoden!'); ///DEBUG
     });
-// world.draw();
 
 /*##########*/
 /*## MISC ##*/
