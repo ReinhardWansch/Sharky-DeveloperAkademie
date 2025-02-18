@@ -1,6 +1,5 @@
-class Character extends AnimatedMOb {
-    isFacingLeft = false;
-
+class Character extends LivingMOb {
+    
     draw(ctx) {
         ctx.save();
         this.moveOnArrowDown();
@@ -23,23 +22,4 @@ class Character extends AnimatedMOb {
         }
         else this.stopMoving();
     }
-
-    turnLeft() {
-        this.isFacingLeft= true;
-    }
-
-    turnRight() {
-        this.isFacingLeft= false;
-    }
-
-    flipCanvasHorizontalyAroundLeftEdge(ctx) {
-        ctx.scale(-1, 1);
-    }
-
-    translateCanvasFacingLeft(ctx) {      
-        ctx.translate(-(this.position.x*2 + this.width), 0);
-    }
-
-    
-
 }
