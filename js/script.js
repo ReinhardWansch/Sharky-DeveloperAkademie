@@ -7,8 +7,9 @@ let world = new World(ctx);
 world.character.setIdleImages(sharkyIdleImages);
 world.setLevel(level1);
 world.level.decodeAllBgImages()
-    .then(()=> {
-        console.log('bg-Images decoded'); ///DEBUG
+.then(()=> {
+    console.log('bg-Images decoded'); ///DEBUG
+    console.log(world.level.isAllBgImagesComplete()); ///DEBUG
         world.draw();
     }).catch(()=>{
         console.log('Fehler beim bg-Images decoden!'); ///DEBUG

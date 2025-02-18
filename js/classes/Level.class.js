@@ -26,4 +26,12 @@ class Level {
         });
         return Promise.all(promises);
     }
+
+    isAllBgImagesComplete() {
+        let allComplete= true;
+        this.bgObjects.forEach(bgObjectI => {
+            allComplete = allComplete && bgObjectI.img.complete;
+        });
+        return allComplete;
+    }
 }
