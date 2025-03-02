@@ -6,13 +6,17 @@ class AnimatedMOb extends MOb {
 
     draw(ctx) {
         super.draw(ctx);
-        this.incrementIdleImageIndex();
+        this.setNextIdleImage();
         this.framesCount++;
     }
 
-    incrementIdleImageIndex() {
+    /*##########*/
+    /*## IDLE ##*/
+    /*##########*/
+
+    setNextIdleImage() {
         this.currentIdleImageIndex++;
-        if (this.framesCount % this.idleDelay == 0) {
+        if ((this.framesCount % this.idleDelay == 0) && this.idleImages[this.currentIdleImageIndex]) {
             this.img = this.idleImages[this.currentIdleImageIndex++ % this.idleImages.length];
         }
     }

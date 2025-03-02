@@ -14,6 +14,7 @@ class World {
         // console.log('World: draw()'); ///DEBUG
         this.ctx.clearRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height);
         this.level.drawBgObjects(this.ctx);
+        this.level.drawEnemies(this.ctx);
         this.character.draw(this.ctx);
         this.moveCameraForNextFrame();
         window.requestAnimationFrame(() => this.draw());

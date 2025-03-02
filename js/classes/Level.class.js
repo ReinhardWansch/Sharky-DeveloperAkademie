@@ -1,6 +1,20 @@
 class Level {
     bgObjects = [];
-    // bgLights = [];
+    enemies = [];
+
+    /*#############*/
+    /*## ENEMIES ##*/
+    /*#############*/
+
+    drawEnemies(ctx) {
+        this.enemies.forEach(enemyI => {
+            enemyI.draw(ctx);
+        });
+    }
+    
+    /*################*/
+    /*## BG OBJECTS ##*/
+    /*################*/
 
     addBgObject(imgPath, repeatAmount = 1) {
         let newBgObject = new BgObject(imgPath, repeatAmount);
