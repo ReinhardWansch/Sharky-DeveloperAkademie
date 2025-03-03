@@ -1,6 +1,6 @@
 <mxfile host="Electron" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/26.0.16 Chrome/132.0.6834.196 Electron/34.2.0 Safari/537.36" version="26.0.16">
   <diagram name="Seite-1" id="x2at07_N_aQKd4EDJgy-">
-    <mxGraphModel dx="425" dy="545" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1044" dy="953" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -281,7 +281,7 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="w2wtN9gK40iT5K4Y2kgw-2" value="Velocity" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="1550" y="1000" width="160" height="138" as="geometry" />
+          <mxGeometry x="1560" y="980" width="160" height="138" as="geometry" />
         </mxCell>
         <mxCell id="w2wtN9gK40iT5K4Y2kgw-3" value="velocityX" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="w2wtN9gK40iT5K4Y2kgw-2" vertex="1">
           <mxGeometry y="26" width="160" height="26" as="geometry" />
@@ -489,13 +489,13 @@
         <mxCell id="ZI-LXOJQntjlG254cAfq-7" value="setCharacter(world)" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;align=left;" parent="ZI-LXOJQntjlG254cAfq-5" vertex="1">
           <mxGeometry y="30" width="130" height="95" as="geometry" />
         </mxCell>
-        <mxCell id="MI50-y59SNSStjzevuYv-1" value="" style="group" vertex="1" connectable="0" parent="1">
+        <mxCell id="MI50-y59SNSStjzevuYv-1" value="" style="group" parent="1" vertex="1" connectable="0">
           <mxGeometry x="780" y="690" width="130" height="125" as="geometry" />
         </mxCell>
-        <mxCell id="MI50-y59SNSStjzevuYv-2" value="character-enemies.js" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="MI50-y59SNSStjzevuYv-1">
+        <mxCell id="MI50-y59SNSStjzevuYv-2" value="character-enemies.js" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="MI50-y59SNSStjzevuYv-1" vertex="1">
           <mxGeometry width="130" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="MI50-y59SNSStjzevuYv-3" value="setCharacter(world)" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;align=left;" vertex="1" parent="MI50-y59SNSStjzevuYv-1">
+        <mxCell id="MI50-y59SNSStjzevuYv-3" value="setCharacter(world)" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;align=left;" parent="MI50-y59SNSStjzevuYv-1" vertex="1">
           <mxGeometry y="30" width="130" height="95" as="geometry" />
         </mxCell>
       </root>

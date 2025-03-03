@@ -15,7 +15,7 @@ class MOb extends DrawableObject {
 
     draw(ctx) {
         super.draw(ctx);
-        // this.moveForNextFrame();
+        this.moveForNextFrame();
     }
 
     /*############*/
@@ -24,12 +24,12 @@ class MOb extends DrawableObject {
 
     startMovingRight() {
         this.velocityX = this.speed;
-        this.isFacingLeft = false;
+        // this.isFacingLeft = false;
     }
     
     startMovingLeft() {
         this.velocityX = this.speed * -1;
-        this.isFacingLeft = true;
+        // this.isFacingLeft = true;
     }
 
     stopMoving() {

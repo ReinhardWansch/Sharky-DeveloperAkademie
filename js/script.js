@@ -36,49 +36,18 @@ function setCharacter(world) {
 /*###########*/
 
 function tuEs() {
-    console.log(world.level.enemies);
-    console.log(world.level.enemies[0]);
-    console.log(level1.enemies); ///DEBUG
+    setCharacterSpeed(20);
 }
 
-function drawBgObject(index) {
-    world.level.bgObjects[index].draw(world.ctx);
+function logCharacterValues() {
+    console.log(
+        world.character.position.x,
+        world.character.speed,
+        world.character.velocity.velocityX,
+    );
+    
 }
 
-function logKeyboard() {
-    console.log(world.character.keyboard);
-}
-
-function logLevel() {
-    console.log(world.level); ///DEBUG
-}
-
-function logBgObjects() {
-    world.level.bgObjects.forEach((bgObjectI) => console.log(bgObjectI));
-}
-
-function logCharacter() {
-    console.log(world.character);
-}
-
-function logCameraoffset() {
-    console.log(world.character.cameraOffset);
-}
-
-function logCharacterVelocity() {
-    console.log(world.character.velocity);
-}
-
-function logCharacterScaleFactor() {
-    console.log(world.character.scaleFactor);
-}
-
-function logCharacterPosition() {
-    console.log(world.character.position);
-}
-
-function translateCTX() {
-    world.ctx.clearRect(0, 0, world.ctx.canvas.width, world.ctx.canvas.height);
-    world.ctx.translate(50, 0);
-    world.draw();
+function setCharacterSpeed(speed) {
+    world.character.speed = speed;
 }

@@ -3,7 +3,7 @@ class World {
     keyboard;
     level;
     character;
-    // cameraOffset= 0;
+    cameraPos = 0;
 
     constructor(ctx) {
         this.ctx = ctx;
@@ -11,11 +11,13 @@ class World {
     }
 
     draw() {
-        // console.log('World: draw()'); ///DEBUG
         this.ctx.clearRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height);
+        this.ctx.save();
+        this.ctx.translate(this.cameraPos, 0);
         this.level.drawBgObjects(this.ctx);
         this.level.drawEnemies(this.ctx);
         this.character.draw(this.ctx);
+        this.ctx.restore();
         this.moveCameraForNextFrame();
         window.requestAnimationFrame(() => this.draw());
     }
@@ -25,17 +27,11 @@ class World {
     /*##############*/
 
     moveCameraForNextFrame() {
-        if (this.character.keyboard.ArrowRight) {
-            this.level.bgObjects.forEach((bgObjectI) => bgObjectI.velocity.velocityX = -bgObjectI.speed);
-            // console.log(this.level.bgObjects[0]); ///DEBUG
-        }
-        else if (this.character.keyboard.ArrowLeft) 
-            this.level.bgObjects.forEach((bgObjectI) => bgObjectI.velocity.velocityX = bgObjectI.speed);
-        else {
-            this.level.bgObjects.forEach((bgObjectI) => bgObjectI.stopMoving());
-        }
+        if (this.character.keyboard.ArrowRight)
+            this.cameraPos -= this.character.speed;
+        else if (this.character.keyboard.ArrowLeft)
+            this.cameraPos += this.character.speed;
     }
-    
 
     /*###########*/
     /*## LEVEL ##*/
@@ -48,5 +44,5 @@ class World {
     /* drawCharacter() {
         this.character.draw(this.ctx); 
     } */
-    
+
 }
