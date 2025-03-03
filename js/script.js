@@ -5,7 +5,6 @@ let level1 = new Level(ctx);
 level1.bgObjects = BG_OBJECTS_LEVEL_1;
 level1.scaleBGObjectsToHeight(canvas.height);
 level1.enemies = ENEMIES_LEVEL_1;
-//TODO die idleImages von den Enemies setzen
 setCharacter(world);
 world.character.setIdleImages(sharkyIdleImages);
 world.setLevel(level1);
