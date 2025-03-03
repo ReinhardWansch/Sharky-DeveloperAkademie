@@ -17,5 +17,13 @@ class BgObject extends MOb {
         }
         this.moveForNextFrame();
     };
-    
+
+    moveForNextFrame() {
+        if (this.keyboard.ArrowRight)
+            this.startMovingLeft();
+        else if (this.keyboard.ArrowLeft)
+            this.startMovingRight();
+        else this.stopMoving();
+        super.moveForNextFrame();
+    }
 }
