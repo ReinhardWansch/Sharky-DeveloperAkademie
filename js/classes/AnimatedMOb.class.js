@@ -1,7 +1,7 @@
 class AnimatedMOb extends MOb {
     idleImages = [];
     currentIdleImageIndex = 0;
-    idleDelay= 10; //[frames]
+    idleDelay= 5; //[frames]
     framesCount = 0;
 
     draw(ctx) {
@@ -15,8 +15,8 @@ class AnimatedMOb extends MOb {
     /*##########*/
 
     setNextIdleImage() {
-        this.currentIdleImageIndex++;
-        if ((this.framesCount % this.idleDelay == 0) && this.idleImages[this.currentIdleImageIndex]) {
+        if ((this.framesCount % this.idleDelay == 0)) {
+            console.log('if'); ///DEBUG
             this.img = this.idleImages[this.currentIdleImageIndex++ % this.idleImages.length];
         }
     }

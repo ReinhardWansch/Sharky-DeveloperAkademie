@@ -13,7 +13,7 @@ const BG_OBJECTS_LEVEL_1 = [
 /*#############*/
 
 const ENEMIES_LEVEL_1 = [
-    new LivingMOb('img/2.Enemy/1.Puffer fish (3 color options)/1.Swim/1.swim1.png', 5),
+    new LivingMOb('img/2.Enemy/1.Puffer fish (3 color options)/1.Swim/1.swim1.png', 0),
 ];
 ENEMIES_LEVEL_1.forEach((enemyI) => {
     enemyI.position.x = 500;

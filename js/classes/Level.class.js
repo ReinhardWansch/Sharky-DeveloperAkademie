@@ -33,7 +33,7 @@ class Level {
         });
     }
 
-    async decodeAllBgImages() {
+    decodeAllBgImages() {
         let promises = [];
         this.bgObjects.forEach(bgObjectI => {
             promises.push(bgObjectI.img.decode());
