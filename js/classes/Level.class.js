@@ -11,6 +11,14 @@ class Level {
             enemyI.draw(ctx);
         });
     }
+
+    decodeAllEnemyImages() {
+        let promises = [];
+        this.enemies.forEach(enemyI => {
+            promises.push(enemyI.img.decode());
+        });
+        return Promise.all(promises);
+    }
     
     /*################*/
     /*## BG OBJECTS ##*/
@@ -41,11 +49,11 @@ class Level {
         return Promise.all(promises);
     }
 
-    isAllBgImagesComplete() {
+    /* isAllBgImagesComplete() {
         let allComplete= true;
         this.bgObjects.forEach(bgObjectI => {
             allComplete = allComplete && bgObjectI.img.complete;
         });
         return allComplete;
-    }
+    } */
 }

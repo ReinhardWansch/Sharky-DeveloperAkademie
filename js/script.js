@@ -6,11 +6,14 @@ let keyboard = new Keyboard();
 level1.bgObjects = BG_OBJECTS_LEVEL_1;
 setBackgroundsKeyboard(level1);
 level1.scaleBGObjectsToHeight(canvas.height);
-// level1.enemies = ENEMIES_LEVEL_1;
+level1.enemies = ENEMIES_LEVEL_1;
+level1.enemies[0].idleImages= pufferfishSwimImages;
 setCharacter(world);
 world.character.setIdleImages(sharkyIdleImages);
 world.setLevel(level1);
 world.level.decodeAllBgImages()
+    .then(()=> world.level.decodeAllEnemyImages())
+    .catch(e => console.log(e))
     .then(() => {
         world.draw();
     }).catch(() => {

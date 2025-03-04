@@ -16,7 +16,6 @@ class AnimatedMOb extends MOb {
 
     setNextIdleImage() {
         if ((this.framesCount % this.idleDelay == 0)) {
-            console.log('if'); ///DEBUG
             this.img = this.idleImages[this.currentIdleImageIndex++ % this.idleImages.length];
         }
     }
